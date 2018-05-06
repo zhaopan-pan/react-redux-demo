@@ -219,6 +219,12 @@ module.exports = {
       // Make sure to add the new loader(s) before the "file" loader.
     ],
   },
+  //文件访问根字段
+  resolve: {
+    alias: {
+        "@": require('path').resolve(__dirname, '../src')
+    }
+},
   plugins: [
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.less';
+import '@/App.less';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
-
+aaa
       </div>
     );
   }
