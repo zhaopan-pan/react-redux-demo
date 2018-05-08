@@ -11,3 +11,4 @@ function createStore (reducer) {
   return { getState, dispatch, subscribe }
 }
 export default createStore;
+// https://segmentfault.com/a/1190000012976767#articleHeader4
