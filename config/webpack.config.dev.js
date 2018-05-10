@@ -149,6 +149,7 @@ module.exports = {
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
               cacheDirectory: true,
+              //按需加载
               "plugins":[
               ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
               ]
