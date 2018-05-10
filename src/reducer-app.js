@@ -16,9 +16,12 @@ const reducer=(state=initStateVal,action)=>{
         return {
            text: "lala"
         }
+        case "2":
+        return {
+           text: "keke"
+        }
         default:
         return state;
     }
-
 }
 export default reducer

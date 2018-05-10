@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import test from "./test.less";
 import { connect } from 'react-redux';
 
@@ -7,27 +7,41 @@ import { connect } from 'react-redux';
 class Test extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props);
     }
-    render() { 
-        return ( 
+    render() {
+        const { onChildButtonClick,texts, dispatchs,onChildTextClick} = this.props;
+        console.log(this.props);
+        // const texts = this.props.reducersTest.texts;
+        return (
             <div>
-                进来了！
+                <div onClick={() => dispatchs({ type: "childTextOnClick" })}>
+                    子组件！{texts}
+                </div>
+                <button onClick={()=>onChildTextClick({type:"textOnClick"})}>child改变父级</button>
+                <button onClick={() => onChildButtonClick({ type: "childButtonOnClick" })}>child改变自己</button>
             </div>
-         )
+        )
     }
 }
- 
-function mapStateToProps(state){
-    return { text: state.text }
-}
-function mapDispatchToProps(dispatch){
-    return{
-        dispatchs:()=>dispatch()
+
+function mapStateToProps(state) {
+    console.log(state);
+    return {
+        texts: state.reducersTest.texts,
+        // reducersTest: state.reducersTest
     }
 }
-const Tests=connect(mapStateToProps,mapDispatchToProps)(Test);
-export default Tests;
+function mapDispatchToProps(dispatch) {
+    return {
+        dispatchs: dispatch,
+        onChildButtonClick: dispatch,
+        onChildTextClick: dispatch
+    }
+}
+// const Tests = 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Test);
