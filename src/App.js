@@ -9,8 +9,9 @@ class App extends Component {
     const onButtonClick = {
       type: "1"
     }
-    console.log(this.props);
-    this.props.lala(onButtonClick); 
+    // console.log(this.props);
+    // this.props.onButtonClick(onButtonClick); 
+    // store.dispatch({type:"1"})
   }
   dispatchs = () => {
     const onButtonClcik = {
@@ -20,12 +21,13 @@ class App extends Component {
   }
 
   render() {
-    const { text, onButtonClick, onTextClick } = this.props;
+    const { text, onButtonClick, onTextClick,onChildTextClick} = this.props;
     console.log(this.props);
     return (
       <div className="App">
-        <h1 onClick={() => onTextClick()}>{text}</h1>
-        <button onClick={() => onButtonClick()}>clike</button>
+        <h1 onClick={() => onTextClick({type:"textOnClick"})}>{text}</h1>
+        <button onClick={() => onButtonClick({type:"buttonOnClick"})}>ded</button>
+        <button onClick={() => onChildTextClick({type:"childTextOnClick"})}>改变儿子</button>
         <Test></Test>
       </div>
     );
@@ -34,23 +36,26 @@ class App extends Component {
 
 //state转props
 function mapStateToProps(state) {
-  return { text: state.text }
+  console.log(state);
+  return { text: state.reducerApp.text }
 }
-const onButtonClick = {
-  type: "buttonOnClick"
-}
-const onTextClick = {
-  type: "textOnClick"
-}
-const lala = {
-  type: "1"
-}
+// const onButtonClick = {
+//   type: "buttonOnClick"
+// }
+// const onTextClick = {
+//   type: "textOnClick"
+// }
+// const lala = {
+//   type: "1"
+// }
 //把action映射到props
 function mapDispatchToProps(dispatch) {
   return {
-    onButtonClick: () => dispatch(onButtonClick),
-    onTextClick: () => dispatch(onTextClick),
-    lala: () => dispatch(lala),
+    onButtonClick:  dispatch,
+    onTextClick:  dispatch,
+    lala: dispatch,
+    onChildTextClick: dispatch
+    
   }
 }
 //connect连接组件和reducer
