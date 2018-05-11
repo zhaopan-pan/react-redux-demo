@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+// import classNames from 'classnames/bind';
+// import cs from 'classnames';
 import test from "./test.less";
 import { connect } from 'react-redux';
 
+// let cx = classNames.bind(test);
 
 
 class Test extends Component {
@@ -17,7 +20,7 @@ class Test extends Component {
         console.log(this.props);
         // const texts = this.props.reducersTest.texts;
         return (
-            <div>
+            <div className={test.app}>
                 <div onClick={() => dispatchs({ type: "childTextOnClick" })}>
                     子组件！{texts}
                 </div>

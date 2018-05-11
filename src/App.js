@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '@/App.less';
+import app from '@/App.less';
 import Test from "@/component/Test"
 
 class App extends Component {
